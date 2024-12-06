@@ -9,7 +9,7 @@ def island_perimeter(grid):
         grid (list of list of int): A 2D grid representation where:
             0 represents water
             1 represents land
-    Returns: 
+    Returns:
         int: the perimeter of the island
     """
 
