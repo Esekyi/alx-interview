@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-
 def isWinner(x, nums):
     """
     Determines the winner of each round of the game and returns
         the player with the most wins.
     Args:
-            x: an integer representing the number of rounds
-            nums: a list of n integers
-    returns:
-            the name of the player that won the most rounds
+        x: an integer representing the number of rounds
+        nums: a list of n integers
+    Returns:
+        the name of the player that won the most rounds
     """
+
     def sieve_of_eratosthenes(n):
         """Generate a list of prime numbers up to n."""
         is_prime = [True] * (n + 1)
@@ -21,7 +21,7 @@ def isWinner(x, nums):
         return is_prime
 
     def count_primes(nums, primes):
-        """Count the number primes to nums."""
+        """Count the number primes up to nums."""
         return sum(primes[:nums + 1])
 
     max_number = max(nums)
