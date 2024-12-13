@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Prime Game"""
 
+
 def isWinner(x, nums):
     """
     Determines the winner of each round of the game and returns
