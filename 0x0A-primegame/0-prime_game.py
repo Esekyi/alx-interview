@@ -12,28 +12,24 @@ def isWinner(x, nums):
     if not nums or x < 1:
         return None
 
-    def sieve_of_eratosthenes(n):
-        """Generate a list of prime numbers up to n."""
-        is_prime = [True] * (n + 1)
-        is_prime[0] = is_prime[1] = False
-        for i in range(2, int(n**0.5) + 1):
-            if is_prime[i]:
-                for j in range(i * i, n + 1, i):
-                    is_prime[j] = False
-        return is_prime
-
-    def count_primes(nums, primes):
-        """Count the number primes up to nums."""
-        return sum(primes[:nums + 1])
-
     max_number = max(nums)
-    primes = sieve_of_eratosthenes(max_number)
+
+    is_prime = [True] * (max_number + 1)
+    is_prime[0] = is_prime[1] = False
+
+    for i in range(2, int(max_number**0.5) + 1):
+        if is_prime[i]:
+            for j in range(i * i, max_number + 1, i):
+                is_prime[j] = False
+
+    count_primes = [0] * (max_number + 1)
+    for i in range(1, max_number + 1):
+        count_primes[i] = count_primes[i - 1] + is_prime[i]
 
     maria_wins = 0
     ben_wins = 0
     for n in nums:
-        primes_count = count_primes(n, primes)
-        if primes_count % 2 == 1:
+        if count_primes[n] % 2 == 1:
             maria_wins += 1
         else:
             ben_wins += 1
