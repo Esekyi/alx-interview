@@ -9,6 +9,8 @@ def isWinner(x, nums):
     Returns:
         the name of the player that won the most rounds
     """
+    if not nums or x < 1:
+        return None
 
     def sieve_of_eratosthenes(n):
         """Generate a list of prime numbers up to n."""
