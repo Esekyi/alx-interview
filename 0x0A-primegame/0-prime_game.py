@@ -1,13 +1,10 @@
 #!/usr/bin/python3
+"""Prime Game"""
+
 def isWinner(x, nums):
     """
     Determines the winner of each round of the game and returns
         the player with the most wins.
-    Args:
-        x: an integer representing the number of rounds
-        nums: a list of n integers
-    Returns:
-        the name of the player that won the most rounds
     """
     if not nums or x < 1:
         return None
